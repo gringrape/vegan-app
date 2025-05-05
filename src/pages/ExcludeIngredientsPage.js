@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 function ExcludeIngredientsPage() {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ function ExcludeIngredientsPage() {
   };
 
   const handleNext = () => {
-    navigate('/final-menu');
+    navigate('/recipe');
   };
 
   return (

@@ -1,12 +1,12 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router';
 
-import StartPage from './pages/StartPage';
-import NicknamePage from './pages/NicknamePage';
+import BirthyearPage from './pages/BirthyearPage';
 import DietTypePage from './pages/DietTypePage';
 import ExcludeIngredientsPage from './pages/ExcludeIngredientsPage';
-import FinalMenuPage from './pages/RecipePage';
 import GenderPage from './pages/GenderPage';
-import BirthyearPage from './pages/BirthyearPage';
+import NicknamePage from './pages/NicknamePage';
+import RecipePage from './pages/RecipePage';
+import StartPage from './pages/StartPage';
 
 function App() {
   return (
@@ -18,10 +18,10 @@ function App() {
         <Route path="/userinfo/birthyear" element={<BirthyearPage />} />
         <Route path="/diet-type" element={<DietTypePage />} />
         <Route path="/exclude-ingredients" element={<ExcludeIngredientsPage />} />
-        <Route path="/final-menu" element={<FinalMenuPage />} />
+        <Route path="/recipe" element={<RecipePage />} />
       </Routes>
     </Router>
   );
 }
 
-export default App; 
+export default App;
