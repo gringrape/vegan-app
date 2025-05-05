@@ -4,7 +4,7 @@ import StartPage from './pages/StartPage';
 import NicknamePage from './pages/NicknamePage';
 import DietTypePage from './pages/DietTypePage';
 import ExcludeIngredientsPage from './pages/ExcludeIngredientsPage';
-import FinalMenuPage from './pages/FinalMenuPage';
+import FinalMenuPage from './pages/RecipePage';
 import GenderPage from './pages/GenderPage';
 import BirthyearPage from './pages/BirthyearPage';
 
