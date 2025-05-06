@@ -23,7 +23,7 @@ const Page = styled.div`
       color: ${({ theme }) => theme.colors.textLight};
       font-size: ${({ theme }) => theme.fontSizes.sm};
       margin-bottom: 0; 
-      line-height: 1.5;
+      line-height: 2;
     }
   }
 `;
