@@ -13,7 +13,7 @@ const Select = styled.div`
   gap: 1em;
 `;
 
-const GenderButton = styled.button`
+const SelectButton = styled.button`
   display: block;
   width: 100%;
   padding: 1.5em 0;
@@ -44,20 +44,20 @@ export default function GenderPage() {
         <label>성별을 선택해주세요</label>
         <p>성별에 맞는 식단을 알려드려요</p>
         <Select>
-          <GenderButton
+          <SelectButton
             type="button"
             selected={selectedGender === 'female'}
             onClick={() => handleGenderSelect('female')}
           >
             여성
-          </GenderButton>
-          <GenderButton
+          </SelectButton>
+          <SelectButton
             type="button"
             selected={selectedGender === 'male'}
             onClick={() => handleGenderSelect('male')}
           >
             남성
-          </GenderButton>
+          </SelectButton>
         </Select>
       </form>
       <Submit onClick={handleNext} disabled={isNextDisabled}>
