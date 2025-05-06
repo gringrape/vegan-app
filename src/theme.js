@@ -33,11 +33,12 @@ const theme = {
   },
   colors: {
     primary: '#D9662C',           // 진한 주황 (CTA 버튼 등)
-    primaryLight: '#F29E48',      // 밝은 주황 (보조 강조)
+    primaryLight: '#F29E48',
+    primarySuperLight: '#FFEED9',
     secondary: '#3B9856',         // 진한 초록 (보조 포인트)
     secondaryLight: '#9DCB88',    // 밝은 초록 (아이콘, 포인트)
     broccoli: '#7EB77F',          // 캐릭터 보조용
-    background: '#F9E0A4',        // 전체 배경톤
+    background: '#F0F0F0',        // 전체 배경톤
     white: '#FFFFFF',
     text: '#333333',
     textLight: '#666666',

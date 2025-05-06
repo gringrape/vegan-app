@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     margin: 0 auto;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: ${({ theme }) => theme.colors.background};
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
   }
