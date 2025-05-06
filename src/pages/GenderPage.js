@@ -13,7 +13,7 @@ export default function GenderPage() {
 
   return (
     <div>
-      <div>
+      <form>
         <h1>성별을 선택해주세요</h1>
         <div>
           <button
@@ -29,7 +29,7 @@ export default function GenderPage() {
             여성
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
