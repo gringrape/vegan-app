@@ -4,26 +4,9 @@ import { useNavigate } from 'react-router';
 
 import styled from 'styled-components';
 
-const Container = styled.div`
-  padding: 2.5em 1.5em;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
+import Page from '../components/Page';
+import Submit from '../components/Submit';
 
-  form {
-    margin: auto 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1em;
-  }
-
-  label {
-    font-size: ${({ theme }) => theme.fontSizes.xl};
-    display: block;
-  }
-`;
 
 const Input = styled.input`
   padding: 14px 16px;
@@ -38,17 +21,6 @@ const GenerateButton = styled.button`
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 8px;
-`;
-
-const Button = styled.button`
-  margin-top: auto;
-  padding: 16px 0;
-  background-color: ${({ theme, disabled }) => disabled ? theme.colors.state.disabled : theme.colors.primary};
-  border-radius: 12px;
-  color: white;
-  width: 100%;
-  text-align: center;
-  border: none;
 `;
 
 export default function NicknamePage() {
@@ -83,7 +55,7 @@ export default function NicknamePage() {
   };
 
   return (
-    <Container>
+    <Page>
       <form>
         <label>닉네임을 설정해주세요</label>
         <Input
@@ -96,9 +68,9 @@ export default function NicknamePage() {
           랜덤 생성
         </GenerateButton>
       </form>
-      <Button onClick={handleNext} disabled={isNextDisabled}>
+      <Submit onClick={handleNext} disabled={isNextDisabled}>
         다음
-      </Button>
-    </Container>
+      </Submit>
+    </Page>
   );
 }

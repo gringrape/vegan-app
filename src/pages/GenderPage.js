@@ -4,25 +4,8 @@ import { useNavigate } from 'react-router';
 
 import styled from 'styled-components';
 
-const Container = styled.div`
-  padding: 2.5em 1.5em;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;  
-
-  form {
-    margin: auto 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5em;
-
-    p {
-      color: ${({ theme }) => theme.colors.textLight};
-    }
-  }
-`;
+import Page from '../components/Page';
+import Submit from '../components/Submit';
 
 const Select = styled.div`
   display: flex;
@@ -41,17 +24,6 @@ const GenderButton = styled.button`
   font-weight: bold;
 `;
 
-const Button = styled.button`
-  margin-top: auto;
-  padding: 16px 0;
-  background-color: ${({ theme, disabled }) => disabled ? theme.colors.state.disabled : theme.colors.primary};
-  border-radius: 12px;
-  color: white;
-  width: 100%;
-  text-align: center;
-  border: none;
-`;
-
 export default function GenderPage() {
   const navigate = useNavigate();
   const [selectedGender, setSelectedGender] = useState('female');
@@ -67,9 +39,9 @@ export default function GenderPage() {
   };
 
   return (
-    <Container>
+    <Page>
       <form>
-        <h1>성별을 선택해주세요</h1>
+        <label>성별을 선택해주세요</label>
         <p>성별에 맞는 식단을 알려드려요</p>
         <Select>
           <GenderButton
@@ -88,9 +60,9 @@ export default function GenderPage() {
           </GenderButton>
         </Select>
       </form>
-      <Button onClick={handleNext} disabled={isNextDisabled}>
+      <Submit onClick={handleNext} disabled={isNextDisabled}>
         다음
-      </Button>
-    </Container>
+      </Submit>
+    </Page>
   );
 }
