@@ -7,7 +7,6 @@ import styled from 'styled-components';
 import Page from '../components/Page';
 import Submit from '../components/Submit';
 
-
 const Input = styled.input`
   padding: 14px 16px;
   font-size: 16px;
@@ -21,6 +20,17 @@ const GenerateButton = styled.button`
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 8px;
+`;
+
+const Avatar = styled.div`
+  margin: 0 auto;
+  margin-top: 1em;
+
+  img {
+    width: 10em;
+    border-radius: 50%;
+    border: 2px solid ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 export default function NicknamePage() {
@@ -58,6 +68,7 @@ export default function NicknamePage() {
     <Page>
       <form>
         <label>닉네임을 설정해주세요</label>
+        <p>귀여운 아바타를 만들어보세요</p>
         <Input
           type="text"
           value={nickname}
@@ -67,6 +78,9 @@ export default function NicknamePage() {
         <GenerateButton type="button" onClick={generateNickname}>
           랜덤 생성
         </GenerateButton>
+        <Avatar>
+          <img src="assets/images/avatar.png" alt="avatar" />
+        </Avatar>
       </form>
       <Submit onClick={handleNext} disabled={isNextDisabled}>
         다음

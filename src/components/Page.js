@@ -21,6 +21,9 @@ const Page = styled.div`
 
     p {
       color: ${({ theme }) => theme.colors.textLight};
+      font-size: ${({ theme }) => theme.fontSizes.sm};
+      margin-bottom: 0; 
+      line-height: 1.5;
     }
   }
 `;
