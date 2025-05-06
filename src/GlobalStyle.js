@@ -21,6 +21,34 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
+
+  // Typography
+  html, body {
+    font-size: ${({ theme }) => theme.typography.body.fontSize};
+    line-height: ${({ theme }) => theme.typography.body.lineHeight};
+    color: #222;
+  }
+
+  h1 {
+    ${({ theme }) => theme.typography.h1}
+  }
+
+  h2 {
+    ${({ theme }) => theme.typography.h2}
+  }
+
+  h3 {
+    ${({ theme }) => theme.typography.h3}
+  }
+
+  p {
+    ${({ theme }) => theme.typography.body}
+    margin: 0 0 1em;
+  }
+
+  small {
+    ${({ theme }) => theme.typography.small}
+  }
 `;
 
 export default GlobalStyle;
