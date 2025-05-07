@@ -8,7 +8,7 @@ const theme = {
   },
   typography: {
     h1: {
-      fontSize: '1.5rem',
+      fontSize: '1.2rem',
       fontWeight: 'bold',
       lineHeight: 1.2,
     },
@@ -32,10 +32,9 @@ const theme = {
     },
   },
   colors: {
-    primary: '#D9662C',           // 진한 주황 (CTA 버튼 등)
+    primary: '#3B9856',         // 진한 초록 (보조 포인트)
     primaryLight: '#F29E48',
-    primarySuperLight: '#FFEED9',
-    secondary: '#3B9856',         // 진한 초록 (보조 포인트)
+    primarySuperLight: '#E5F2E7',
     secondaryLight: '#9DCB88',    // 밝은 초록 (아이콘, 포인트)
     broccoli: '#7EB77F',          // 캐릭터 보조용
     background: '#F0F0F0',        // 전체 배경톤
