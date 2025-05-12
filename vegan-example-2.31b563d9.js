@@ -31491,11 +31491,11 @@ function AppRouter() {
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Route), {
-                    path: "/recipe",
+                    path: "/recipe/:recipeId",
                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _recipePageDefault.default), {}, void 0, false, {
                         fileName: "src/AppRouter.js",
                         lineNumber: 19,
-                        columnNumber: 40
+                        columnNumber: 50
                     }, void 0)
                 }, void 0, false, {
                     fileName: "src/AppRouter.js",
@@ -43785,9 +43785,7 @@ const recipeState = (0, _recoil.selector)({
         });
         const excludeIngredientIds = get(excludeIngredientsState);
         const excludeIngredientKeys = excludeIngredientIds.map((id)=>(0, _ingredientsDefault.default).find((ingredient)=>ingredient.id === id).key);
-        const byExcludeIngredients = byDietType.filter((recipe)=>{
-            return recipe.ingredients.every((ingredient)=>!excludeIngredientKeys.includes(ingredient));
-        });
+        const byExcludeIngredients = byDietType.filter((recipe)=>excludeIngredientKeys.every((key)=>!recipe.ingredients.includes(key)));
         const randomRecipe = byExcludeIngredients[Math.floor(Math.random() * byExcludeIngredients.length)];
         return randomRecipe;
     }
@@ -43806,7 +43804,7 @@ const dietTypes = [
     {
         id: 2,
         name: "\uD83C\uDF54 \uAC04\uD3B8\uD568 + \uB9DB",
-        description: "\uAC04\uB2E8\uD558\uBA74\uC11C\uB3C4 \uB9DB\uC788\uB294 \uC2DD\uB2E8",
+        description: "\uAC04\uB2E8\uD558\uACE0 \uB9DB\uC788\uB294 \uC2DD\uB2E8",
         key: "\uAC04\uD3B8\uD568+\uB9DB"
     },
     {
@@ -43861,6 +43859,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 const recipes = [
     {
+        id: 1,
         name: "\uBE44\uAC74 \uB77C\uB530\uB69C\uC774",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD"
@@ -43952,6 +43951,7 @@ const recipes = [
         ]
     },
     {
+        id: 2,
         name: "\uB450\uBD80 \uC2A4\uD14C\uC774\uD06C",
         types: [
             "\uD558\uC774\uD504\uB85C\uD2F4",
@@ -44033,6 +44033,7 @@ const recipes = [
         ]
     },
     {
+        id: 3,
         name: "\uB2EC\uAC40 \uC544\uBCF4\uCE74\uB3C4 \uC0CC\uB4DC\uC704\uCE58",
         types: [
             "\uD558\uC774\uD504\uB85C\uD2F4",
@@ -44108,6 +44109,7 @@ const recipes = [
         ]
     },
     {
+        id: 4,
         name: "\uC624\uC774 \uB2ED\uAC00\uC2B4\uC0B4 \uC0D0\uB7EC\uB4DC",
         types: [
             "\uD558\uC774\uD504\uB85C\uD2F4",
@@ -44194,6 +44196,7 @@ const recipes = [
         ]
     },
     {
+        id: 5,
         name: "\uD0A4\uD1A0 \uAE40\uBC25",
         types: [
             "\uD558\uC774\uD504\uB85C\uD2F4",
@@ -44281,6 +44284,7 @@ const recipes = [
         ]
     },
     {
+        id: 6,
         name: "\uACE0\uC0AC\uB9AC \uD30C\uC2A4\uD0C0",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD",
@@ -44355,6 +44359,7 @@ const recipes = [
         ]
     },
     {
+        id: 7,
         name: "\uBE44\uAC74 \uAC10\uC790 \uB1E8\uB07C",
         types: [
             "\uD558\uC774\uD504\uB85C\uD2F4"
@@ -44436,6 +44441,7 @@ const recipes = [
         ]
     },
     {
+        id: 8,
         name: "\uBE44\uAC74 \uBC18\uBBF8 \uC0CC\uB4DC\uC704\uCE58",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD"
@@ -44530,7 +44536,7 @@ const recipes = [
             {
                 name: "\uBE44\uAC74 \uB9C8\uC694\uB124\uC988",
                 link: "https://smartstore.naver.com/allthatvegan/products/6387575456",
-                image: "https://shop-phinf.pstatic.net/20250424_58/17454780505795HUHi_JPEG/20817727346080531_13010567.JPG?type=m510"
+                image: "https://shop-phinf.pstatic.net/20250305_150/1741152965751Axkju_JPEG/75285796744326977_2105965810.jpg?type=m510"
             }
         ],
         cookingLink: "https://www.youtube.com/watch?v=UktAciYDjAY",
@@ -44547,6 +44553,7 @@ const recipes = [
         ]
     },
     {
+        id: 9,
         name: "\uADF8\uB9B4\uB4DC \uBCA0\uC9C0 \uC0CC\uB4DC\uC704\uCE58",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD"
@@ -44626,6 +44633,7 @@ const recipes = [
         ]
     },
     {
+        id: 10,
         name: "\uD6C4\uBB34\uC2A4(\uBCD1\uC544\uB9AC\uCF69) \uC0CC\uB4DC\uC704\uCE58",
         types: [
             "\uD558\uC774\uD504\uB85C\uD2F4",
@@ -44708,6 +44716,7 @@ const recipes = [
         ]
     },
     {
+        id: 11,
         name: "\uBC84\uC12F \uC0D0\uB7EC\uB4DC",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD",
@@ -44805,6 +44814,7 @@ const recipes = [
         ]
     },
     {
+        id: 12,
         name: "\uBE44\uAC74 \uBC84\uAC70",
         types: [
             "\uD558\uC774\uD504\uB85C\uD2F4",
@@ -44899,6 +44909,7 @@ const recipes = [
         ]
     },
     {
+        id: 13,
         name: "\uBFCC\uB9AC \uCC44\uC18C \uC601\uC591\uBC25",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD",
@@ -44908,7 +44919,7 @@ const recipes = [
             "\uCC44\uC18C",
             "\uC5B4\uD328\uB958"
         ],
-        image: "https://recipe1.ezmember.co.kr/cache/recipe/2017/11/19/69654ae73c361ffae9edc66e2d44d4d11.jpg",
+        image: "https://i.imgur.com/Q147DWw_d.webp?maxwidth=760&fidelity=grand",
         recommendation: "\uCE7C\uC298\uACFC \uC601\uC591\uC18C\uAC00 \uD48D\uBD80\uD55C \uC790\uC5F0 \uC2DD\uBB3C \uC2DD\uB2E8\uC740 \uBC25\uB9DB\uBD80\uD130 \uB2EC\uB77C\uC694!",
         cookingInfo: {
             time: "60\uBD84 \uC774\uB0B4",
@@ -44977,9 +44988,14 @@ const recipes = [
         ],
         recommendedProducts: [
             {
-                name: "\uCE90\uC288\uB11B \uD06C\uB9BC \uC2A4\uD504\uB808\uB4DC",
-                link: "https://www.ssg.com/item/itemView.ssg?itemId=1000562655897&siteNo=6001&salestrNo=6005&ckwhere=ssg_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs&NaPm=ct%3Dm9wbu254%7Cci%3D2fd033788cfa02da57b2224f5a49d6171e1686b9%7Ctr%3Dsls%7Csn%3D218835%7Chk%3D159a72ae4cd37913d24dfe296e039c3d24a060df",
-                image: "https://sitem.ssgcdn.com/97/58/65/item/1000562655897_i1_1200.jpg"
+                name: "\uC5F0\uADFC",
+                link: "https://grfarm.co.kr/product/detail.html?product_no=1915&cate_no=97&display_group=1",
+                image: "https://grfarm.co.kr/web/product/medium/202204/7fdd275a7054b817076d446d6df45afe.jpg"
+            },
+            {
+                name: "\uC794\uBA78\uCE58",
+                link: "https://smartstore.naver.com/seolaim_/products/8129886461",
+                image: "https://shop-phinf.pstatic.net/20230223_152/1677136519651lSU3u_JPEG/78272354327226764_372094417.jpg?type=m510"
             }
         ],
         cookingLink: "https://www.youtube.com/watch?v=AAU8D0ZDVQ0",
@@ -44997,6 +45013,7 @@ const recipes = [
         ]
     },
     {
+        id: 14,
         name: "\uCD08\uCF54 \uB2E8\uBC31\uC9C8 \uCFE0\uD0A4",
         types: [
             "\uAC04\uD3B8\uD568+\uB9DB",
@@ -45048,13 +45065,15 @@ const recipes = [
         ]
     },
     {
+        id: 15,
         name: "\uADF8\uB9B0 \uC8FC\uC2A4",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD",
             "\uAC04\uD3B8\uD568+\uB9DB"
         ],
         ingredients: [
-            "\uCC44\uC18C"
+            "\uCC44\uC18C",
+            "\uACFC\uC77C"
         ],
         image: "https://recipe1.ezmember.co.kr/cache/recipe/2018/08/24/4325dffb61e80fb655b6ba573d5d46fc1.jpg",
         recommendation: "\uD574\uB3C5\uACFC \uBD80\uAE30 \uC644\uD654, \uC218\uBD84 \uBCF4\uCDA9\uC5D0 \uD0C1\uC6D4\uD55C \uC0C1\uCF8C\uD55C \uADF8\uB9B0 \uC8FC\uC2A4\uC608\uC694!",
@@ -45088,7 +45107,7 @@ const recipes = [
             },
             {
                 name: "\uCF54\uCF54\uB11B\uC6CC\uD130",
-                amount: "500ml(\uC0DD\uB7B5\uAC00\uB2A5)"
+                amount: "500ml"
             }
         ],
         recommendedProducts: [
@@ -45107,6 +45126,7 @@ const recipes = [
         ]
     },
     {
+        id: 16,
         name: "\uB85C\uBA54\uC778 \uC378\uBA38\uB864",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD",
@@ -45199,6 +45219,7 @@ const recipes = [
         ]
     },
     {
+        id: 17,
         name: "\uC6B0\uC5C9\uC1A5\uBC25",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD",
@@ -45285,7 +45306,8 @@ const recipes = [
         ]
     },
     {
-        name: "\uBFCC\uB9AC\uCC44\uC18C \uC601\uC591\uBC25",
+        id: 18,
+        name: "\uBFCC\uB9AC \uCC44\uC18C \uB36E\uBC25",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD",
             "\uAC04\uD3B8\uD568+\uB9DB",
@@ -45383,6 +45405,7 @@ const recipes = [
         ]
     },
     {
+        id: 19,
         name: "\uB80C\uD2F8\uCF69 \uD1A0\uB9C8\uD1A0\uC218\uD504",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD",
@@ -45476,6 +45499,7 @@ const recipes = [
         ]
     },
     {
+        id: 20,
         name: "\uC624\uBC84\uB098\uC774\uD2B8 \uC624\uD2B8\uBC00",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD",
@@ -45536,6 +45560,7 @@ const recipes = [
         ]
     },
     {
+        id: 21,
         name: "\uB0AB\uB610 \uAE40\uBC25",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD",
@@ -45637,6 +45662,7 @@ const recipes = [
         ]
     },
     {
+        id: 22,
         name: "\uD15C\uD398 \uAD6C\uC774 & \uD034\uB178\uC544 \uC0D0\uB7EC\uB4DC \uBC00\uD504\uB819",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD",
@@ -45736,6 +45762,7 @@ const recipes = [
         ]
     },
     {
+        id: 23,
         name: "\uBE44\uAC74 \uCC38\uB098\uBB3C \uD398\uC2A4\uD1A0 \uD30C\uC2A4\uD0C0",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD",
@@ -45810,6 +45837,7 @@ const recipes = [
         ]
     },
     {
+        id: 24,
         name: "\uBBF8\uB2C8\uC591\uBC30\uCD94 \uAD6C\uC774",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD",
@@ -45866,6 +45894,7 @@ const recipes = [
         ]
     },
     {
+        id: 25,
         name: "\uCC44\uC2DD \uC9DC\uC7A5\uBA74",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD",
@@ -45958,6 +45987,7 @@ const recipes = [
         ]
     },
     {
+        id: 26,
         name: "\uC560\uD638\uBC15\uCC44\uC804",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD",
@@ -46040,6 +46070,7 @@ const recipes = [
         ]
     },
     {
+        id: 27,
         name: "\uD034\uB178\uC544 \uC0D0\uB7EC\uB4DC",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD",
@@ -46118,6 +46149,7 @@ const recipes = [
         ]
     },
     {
+        id: 28,
         name: "\uD1A0\uB9C8\uD1A0\uB450\uBD80\uCE74\uD504\uB808\uC81C\uC640 \uB77C\uC784\uB4DC\uB808\uC2F1",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD",
@@ -46208,6 +46240,7 @@ const recipes = [
         ]
     },
     {
+        id: 29,
         name: "\uC601\uC591 \uBFCC\uB9AC\uCC44\uC18C \uCC1C",
         types: [
             "\uC790\uC5F0\uC2DD\uBB3C\uC2DD",
@@ -46333,7 +46366,7 @@ async function updateDietType(dietType) {
     (0, _analytics.trackEvent)('update_diettype', dietType);
 }
 
-},{"./db":"jkmVr","uuid":"f1qTK","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./analytics":"4egbd"}],"jkmVr":[function(require,module,exports,__globalThis) {
+},{"./db":"jkmVr","uuid":"f1qTK","./analytics":"4egbd","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jkmVr":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _supabaseJs = require("@supabase/supabase-js");
@@ -55929,7 +55962,7 @@ async function trackEvent(event, information = "") {
     });
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./db":"jkmVr"}],"7h6Pi":[function(require,module,exports,__globalThis) {
+},{"./db":"jkmVr","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7h6Pi":[function(require,module,exports,__globalThis) {
 "use strict";
 var Refresh = require("7422ead32dcc1e6b");
 function debounce(func, delay) {
@@ -58358,7 +58391,7 @@ $RefreshReg$(_c2, "DietTypePage");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react-router":"2jawN","styled-components":"9aFyZ","../components/Page":"2txSo","../components/Submit":"5O6wl","recoil":"bkFyW","../state":"lzhTf","../data/dietTypes":"6hfWM","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","../repository":"5cgxx"}],"b3sFw":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react-router":"2jawN","styled-components":"9aFyZ","../components/Page":"2txSo","../components/Submit":"5O6wl","recoil":"bkFyW","../state":"lzhTf","../data/dietTypes":"6hfWM","../repository":"5cgxx","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"b3sFw":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$73dc = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$73dc.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -58405,6 +58438,7 @@ function ExcludeIngredientsPage() {
     _s();
     const navigate = (0, _reactRouter.useNavigate)();
     const [selectedIngredients, setSelectedIngredients] = (0, _recoil.useRecoilState)((0, _state.excludeIngredientsState));
+    const [recipe] = (0, _recoil.useRecoilState)((0, _state.recipeState));
     const handleIngredientChange = (ingredientId)=>{
         setSelectedIngredients((prev)=>{
             if (prev.includes(ingredientId)) return prev.filter((id)=>id !== ingredientId);
@@ -58417,7 +58451,7 @@ function ExcludeIngredientsPage() {
     const handleNext = ()=>{
         const excludeIngredients = selectedIngredients.map((id)=>(0, _ingredientsDefault.default).find((ingredient)=>ingredient.id === id).key);
         (0, _repository.updateExcludeIngredients)(excludeIngredients);
-        navigate('/recipe');
+        navigate(`/recipe/${recipe.id}`);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _pageDefault.default), {
         children: [
@@ -58427,14 +58461,14 @@ function ExcludeIngredientsPage() {
                         children: "\uC548\uBA39\uB294 \uC7AC\uB8CC\uAC00 \uC788\uB098\uC694?"
                     }, void 0, false, {
                         fileName: "src/pages/ExcludeIngredientsPage.js",
-                        lineNumber: 60,
+                        lineNumber: 61,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         children: "\uC815\uD655\uD55C \uC2DD\uB2E8\uCD94\uCC9C\uC744 \uC704\uD574 \uC81C\uC678\uD560 \uC7AC\uB8CC\uB97C \uBAA8\uB450 \uC120\uD0DD\uD574\uC8FC\uC138\uC694"
                     }, void 0, false, {
                         fileName: "src/pages/ExcludeIngredientsPage.js",
-                        lineNumber: 61,
+                        lineNumber: 62,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Select, {
@@ -58445,18 +58479,18 @@ function ExcludeIngredientsPage() {
                                 children: ingredient.name
                             }, ingredient.id, false, {
                                 fileName: "src/pages/ExcludeIngredientsPage.js",
-                                lineNumber: 64,
+                                lineNumber: 65,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "src/pages/ExcludeIngredientsPage.js",
-                        lineNumber: 62,
+                        lineNumber: 63,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/ExcludeIngredientsPage.js",
-                lineNumber: 59,
+                lineNumber: 60,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _submitDefault.default), {
@@ -58464,19 +58498,20 @@ function ExcludeIngredientsPage() {
                 children: "\uB2E4\uC74C"
             }, void 0, false, {
                 fileName: "src/pages/ExcludeIngredientsPage.js",
-                lineNumber: 75,
+                lineNumber: 76,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/pages/ExcludeIngredientsPage.js",
-        lineNumber: 58,
+        lineNumber: 59,
         columnNumber: 5
     }, this);
 }
-_s(ExcludeIngredientsPage, "0RWO/KSdykHmpkt/ci5rPMW6N0U=", false, function() {
+_s(ExcludeIngredientsPage, "TZL0lCL15Pv+bBm2hS0gMaGMExs=", false, function() {
     return [
         (0, _reactRouter.useNavigate),
+        (0, _recoil.useRecoilState),
         (0, _recoil.useRecoilState)
     ];
 });
@@ -58492,7 +58527,7 @@ $RefreshReg$(_c2, "ExcludeIngredientsPage");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react-router":"2jawN","styled-components":"9aFyZ","../components/Page":"2txSo","../components/Submit":"5O6wl","recoil":"bkFyW","../state":"lzhTf","../data/ingredients":"2zVrB","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","../repository":"5cgxx"}],"fuxIc":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react-router":"2jawN","styled-components":"9aFyZ","../components/Page":"2txSo","../components/Submit":"5O6wl","recoil":"bkFyW","../state":"lzhTf","../data/ingredients":"2zVrB","../repository":"5cgxx","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"fuxIc":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$468c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$468c.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -59006,14 +59041,14 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>RecipePage);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _recoil = require("recoil");
 var _styledComponents = require("styled-components");
 var _styledComponentsDefault = parcelHelpers.interopDefault(_styledComponents);
-var _state = require("../state");
 var _submit = require("../components/Submit");
 var _submitDefault = parcelHelpers.interopDefault(_submit);
 var _analytics = require("../analytics");
+var _recipes = require("../data/recipes");
+var _recipesDefault = parcelHelpers.interopDefault(_recipes);
+var _reactRouter = require("react-router");
 var _s = $RefreshSig$();
 const Page = (0, _styledComponentsDefault.default).div`
   font-size: ${({ theme })=>theme.fontSizes.base};
@@ -59248,25 +59283,8 @@ function stepIcon(step) {
 }
 function RecipePage() {
     _s();
-    const recipe = (0, _recoil.useRecoilValue)((0, _state.recipeState));
-    // TODO: 지우기
-    const nickname = (0, _recoil.useRecoilValue)((0, _state.nicknameState));
-    const gender = (0, _recoil.useRecoilValue)((0, _state.genderState));
-    const birthYear = (0, _recoil.useRecoilValue)((0, _state.birthYearState));
-    const dietType = (0, _recoil.useRecoilValue)((0, _state.dietTypeState));
-    const excludeIngredients = (0, _recoil.useRecoilValue)((0, _state.excludeIngredientsState));
-    (0, _react.useEffect)(()=>{
-        const userData = {
-            nickname,
-            gender,
-            birthYear,
-            dietType,
-            excludeIngredients
-        };
-        console.log("\uC0AC\uC6A9\uC790 \uC815\uBCF4:", userData);
-    }, [
-        recipe
-    ]);
+    const { recipeId } = (0, _reactRouter.useParams)();
+    const recipe = (0, _recipesDefault.default).find((recipe)=>recipe.id == recipeId);
     const handleSubmit = ()=>{
         (0, _analytics.trackEvent)('click_submit');
         window.open('https://open.kakao.com/o/gABN8jvh', '_blank', 'noopener');
@@ -59280,7 +59298,7 @@ function RecipePage() {
                         alt: recipe.name
                     }, void 0, false, {
                         fileName: "src/pages/RecipePage.js",
-                        lineNumber: 274,
+                        lineNumber: 259,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
@@ -59290,14 +59308,14 @@ function RecipePage() {
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/RecipePage.js",
-                        lineNumber: 275,
+                        lineNumber: 260,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         children: recipe.recommendation
                     }, void 0, false, {
                         fileName: "src/pages/RecipePage.js",
-                        lineNumber: 276,
+                        lineNumber: 261,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -59306,16 +59324,16 @@ function RecipePage() {
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                            src: "assets/images/time.svg",
+                                            src: "/assets/images/time.svg",
                                             alt: "\uC870\uB9AC\uC2DC\uAC04"
                                         }, void 0, false, {
                                             fileName: "src/pages/RecipePage.js",
-                                            lineNumber: 278,
+                                            lineNumber: 263,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "src/pages/RecipePage.js",
-                                        lineNumber: 278,
+                                        lineNumber: 263,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -59325,29 +59343,29 @@ function RecipePage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/pages/RecipePage.js",
-                                        lineNumber: 278,
-                                        columnNumber: 74
+                                        lineNumber: 263,
+                                        columnNumber: 75
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/pages/RecipePage.js",
-                                lineNumber: 278,
+                                lineNumber: 263,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                            src: "assets/images/difficulty.svg",
+                                            src: "/assets/images/difficulty.svg",
                                             alt: "\uB09C\uC774\uB3C4"
                                         }, void 0, false, {
                                             fileName: "src/pages/RecipePage.js",
-                                            lineNumber: 279,
+                                            lineNumber: 264,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "src/pages/RecipePage.js",
-                                        lineNumber: 279,
+                                        lineNumber: 264,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -59357,54 +59375,54 @@ function RecipePage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/pages/RecipePage.js",
-                                        lineNumber: 279,
-                                        columnNumber: 79
+                                        lineNumber: 264,
+                                        columnNumber: 80
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/pages/RecipePage.js",
-                                lineNumber: 279,
+                                lineNumber: 264,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                            src: "assets/images/money.svg",
+                                            src: "/assets/images/money.svg",
                                             alt: "\uAC00\uACA9"
                                         }, void 0, false, {
                                             fileName: "src/pages/RecipePage.js",
-                                            lineNumber: 280,
+                                            lineNumber: 265,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "src/pages/RecipePage.js",
-                                        lineNumber: 280,
+                                        lineNumber: 265,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                         children: recipe.cookingInfo.price
                                     }, void 0, false, {
                                         fileName: "src/pages/RecipePage.js",
-                                        lineNumber: 280,
-                                        columnNumber: 73
+                                        lineNumber: 265,
+                                        columnNumber: 74
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/pages/RecipePage.js",
-                                lineNumber: 280,
+                                lineNumber: 265,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/RecipePage.js",
-                        lineNumber: 277,
+                        lineNumber: 262,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/RecipePage.js",
-                lineNumber: 273,
+                lineNumber: 258,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(IngredientSection, {
@@ -59413,7 +59431,7 @@ function RecipePage() {
                         children: "\uD83E\uDEDB \uC7AC\uB8CC (1\uC778\uBD84 \uAE30\uC900)"
                     }, void 0, false, {
                         fileName: "src/pages/RecipePage.js",
-                        lineNumber: 284,
+                        lineNumber: 269,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(IngredientTable, {
@@ -59424,7 +59442,7 @@ function RecipePage() {
                                         children: "\uC8FC\uC7AC\uB8CC"
                                     }, void 0, false, {
                                         fileName: "src/pages/RecipePage.js",
-                                        lineNumber: 287,
+                                        lineNumber: 272,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -59434,31 +59452,31 @@ function RecipePage() {
                                                         children: ingredient.name
                                                     }, void 0, false, {
                                                         fileName: "src/pages/RecipePage.js",
-                                                        lineNumber: 291,
+                                                        lineNumber: 276,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                         children: ingredient.amount
                                                     }, void 0, false, {
                                                         fileName: "src/pages/RecipePage.js",
-                                                        lineNumber: 292,
+                                                        lineNumber: 277,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, ingredient.name, true, {
                                                 fileName: "src/pages/RecipePage.js",
-                                                lineNumber: 290,
+                                                lineNumber: 275,
                                                 columnNumber: 17
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "src/pages/RecipePage.js",
-                                        lineNumber: 288,
+                                        lineNumber: 273,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/pages/RecipePage.js",
-                                lineNumber: 286,
+                                lineNumber: 271,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -59467,7 +59485,7 @@ function RecipePage() {
                                         children: "\uBD80\uC7AC\uB8CC"
                                     }, void 0, false, {
                                         fileName: "src/pages/RecipePage.js",
-                                        lineNumber: 298,
+                                        lineNumber: 283,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -59477,43 +59495,43 @@ function RecipePage() {
                                                         children: ingredient.name
                                                     }, void 0, false, {
                                                         fileName: "src/pages/RecipePage.js",
-                                                        lineNumber: 302,
+                                                        lineNumber: 287,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                         children: ingredient.amount
                                                     }, void 0, false, {
                                                         fileName: "src/pages/RecipePage.js",
-                                                        lineNumber: 303,
+                                                        lineNumber: 288,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, ingredient.name, true, {
                                                 fileName: "src/pages/RecipePage.js",
-                                                lineNumber: 301,
+                                                lineNumber: 286,
                                                 columnNumber: 17
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "src/pages/RecipePage.js",
-                                        lineNumber: 299,
+                                        lineNumber: 284,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/pages/RecipePage.js",
-                                lineNumber: 297,
+                                lineNumber: 282,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/RecipePage.js",
-                        lineNumber: 285,
+                        lineNumber: 270,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/RecipePage.js",
-                lineNumber: 283,
+                lineNumber: 268,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(RecommendedProductsSection, {
@@ -59522,14 +59540,14 @@ function RecipePage() {
                         children: "\uC7AC\uB8CC\uB97C \uAD6C\uB9E4\uD574\uC57C \uD55C\uB2E4\uBA74?"
                     }, void 0, false, {
                         fileName: "src/pages/RecipePage.js",
-                        lineNumber: 311,
+                        lineNumber: 296,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         children: "\uC9C1\uC811 \uACE0\uB978 \uC7AC\uB8CC\uB97C \uCD94\uCC9C\uD574\uB4DC\uB9B4\uAC8C\uC694"
                     }, void 0, false, {
                         fileName: "src/pages/RecipePage.js",
-                        lineNumber: 312,
+                        lineNumber: 297,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -59540,7 +59558,7 @@ function RecipePage() {
                                         alt: product.name
                                     }, void 0, false, {
                                         fileName: "src/pages/RecipePage.js",
-                                        lineNumber: 316,
+                                        lineNumber: 301,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -59551,7 +59569,7 @@ function RecipePage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/pages/RecipePage.js",
-                                        lineNumber: 317,
+                                        lineNumber: 302,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
@@ -59559,41 +59577,41 @@ function RecipePage() {
                                         onClick: ()=>(0, _analytics.trackEvent)('click_product', `${product.name}, ${product.link}`),
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                                src: "assets/images/cart.svg",
+                                                src: "/assets/images/cart.svg",
                                                 alt: "\uC7A5\uBC14\uAD6C\uB2C8"
                                             }, void 0, false, {
                                                 fileName: "src/pages/RecipePage.js",
-                                                lineNumber: 319,
+                                                lineNumber: 304,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                 children: "\uBCF4\uB7EC\uAC00\uAE30"
                                             }, void 0, false, {
                                                 fileName: "src/pages/RecipePage.js",
-                                                lineNumber: 320,
+                                                lineNumber: 305,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/pages/RecipePage.js",
-                                        lineNumber: 318,
+                                        lineNumber: 303,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, product.name, true, {
                                 fileName: "src/pages/RecipePage.js",
-                                lineNumber: 315,
+                                lineNumber: 300,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "src/pages/RecipePage.js",
-                        lineNumber: 313,
+                        lineNumber: 298,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/RecipePage.js",
-                lineNumber: 310,
+                lineNumber: 295,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(RecipeOrderSection, {
@@ -59602,7 +59620,7 @@ function RecipePage() {
                         children: "\uD83E\uDD58 \uC870\uB9AC \uC21C\uC11C"
                     }, void 0, false, {
                         fileName: "src/pages/RecipePage.js",
-                        lineNumber: 327,
+                        lineNumber: 312,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ol", {
@@ -59615,31 +59633,31 @@ function RecipePage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/pages/RecipePage.js",
-                                        lineNumber: 331,
+                                        lineNumber: 316,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                         children: step
                                     }, void 0, false, {
                                         fileName: "src/pages/RecipePage.js",
-                                        lineNumber: 332,
+                                        lineNumber: 317,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, index, true, {
                                 fileName: "src/pages/RecipePage.js",
-                                lineNumber: 330,
+                                lineNumber: 315,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "src/pages/RecipePage.js",
-                        lineNumber: 328,
+                        lineNumber: 313,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/RecipePage.js",
-                lineNumber: 326,
+                lineNumber: 311,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(SubmitSection, {
@@ -59648,51 +59666,46 @@ function RecipePage() {
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                src: "assets/images/kakao-talk.png",
+                                src: "/assets/images/kakao-talk.png",
                                 alt: "\uC624\uD508\uCC44\uD305"
                             }, void 0, false, {
                                 fileName: "src/pages/RecipePage.js",
-                                lineNumber: 340,
+                                lineNumber: 325,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "src/pages/RecipePage.js",
-                            lineNumber: 339,
+                            lineNumber: 324,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                             children: "\uB354 \uB2E4\uC591\uD55C \uC2DD\uB2E8 \uAD6C\uB3C5\uD558\uB7EC \uAC00\uAE30"
                         }, void 0, false, {
                             fileName: "src/pages/RecipePage.js",
-                            lineNumber: 342,
+                            lineNumber: 327,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/pages/RecipePage.js",
-                    lineNumber: 338,
+                    lineNumber: 323,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/pages/RecipePage.js",
-                lineNumber: 337,
+                lineNumber: 322,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/pages/RecipePage.js",
-        lineNumber: 272,
+        lineNumber: 257,
         columnNumber: 5
     }, this);
 }
-_s(RecipePage, "cZu+1FfHiuXnb8bi3c7/dStKXes=", false, function() {
+_s(RecipePage, "vGnl4medefSwf4b8e0P+xL3pRQA=", false, function() {
     return [
-        (0, _recoil.useRecoilValue),
-        (0, _recoil.useRecoilValue),
-        (0, _recoil.useRecoilValue),
-        (0, _recoil.useRecoilValue),
-        (0, _recoil.useRecoilValue),
-        (0, _recoil.useRecoilValue)
+        (0, _reactRouter.useParams)
     ];
 });
 _c7 = RecipePage;
@@ -59711,7 +59724,7 @@ $RefreshReg$(_c7, "RecipePage");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","recoil":"bkFyW","styled-components":"9aFyZ","../state":"lzhTf","../components/Submit":"5O6wl","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","../analytics":"4egbd"}],"arDuu":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","styled-components":"9aFyZ","../components/Submit":"5O6wl","../analytics":"4egbd","../data/recipes":"eedAq","react-router":"2jawN","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"arDuu":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _styledComponents = require("styled-components");
